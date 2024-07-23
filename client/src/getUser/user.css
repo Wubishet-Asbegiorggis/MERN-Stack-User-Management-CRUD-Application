@@ -1,33 +1,56 @@
-.userTable{
-    width:75%;
-    margin:50px auto;
+.userTable {
+    width: 75%;
+    margin: 50px auto;
     background-color: white;
     padding: 50px;
     border-radius: 10px;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
-} 
+}
 
-.userTable table{
-    width: 100;
+/* New style for header positioning */
+.header {
+    text-align: center;
+    margin-bottom: 30px; /* Adjust as needed to control space between title and content */
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.header h5 {
+    color: blue; /* Color of the author text */
+    margin: 0;
+}
+
+.userTable table {
+    width: 100%; /* Fixed width percentage */
     margin-top: 30px;
 }
 
-.userTable table thead th{
+.userTable table thead th {
     background-color: darkcyan;
     color: white;
 }
 
-.userTable table tbody td{
+.userTable table tbody td {
     padding: 10px;
     text-align: center;
     vertical-align: middle;
 }
 
-.actionButtons button{
+.actionButtons button {
     margin: 0 10px;
 }
 
-.noData{
+.noData {
     margin-top: 20px;
     text-align: center;
 }
+
+.addUserBtn {
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 15px; /* Adjust margin to control space between button and table */
+    width: 15%;
+}
+

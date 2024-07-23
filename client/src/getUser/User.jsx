@@ -1,4 +1,4 @@
-import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrash, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -34,8 +34,14 @@ const User = () => {
 
   return (
     <div className='userTable'>
-      <Link to='/add' type="button" className="btn btn-primary">
-        <i className="fa-solid fa-user-plus"></i> Add User
+      <header className="header">
+        <h1>MERN Stack User Management App</h1>
+        <h5 className="author" style={{ fontSize: '10px', color: 'blue' }}>@ Wubishet Asbe</h5>
+
+      </header>
+
+      <Link to='/add' type="button" className="btn btn-primary addUserBtn">
+        <FontAwesomeIcon icon={faUserPlus} /> Add User
       </Link>
 
       {
@@ -43,40 +49,39 @@ const User = () => {
           <div className='noData'>
             <h3>No data to display.</h3>
             <p>Please, <b>Add new users</b>.</p>
-            </div>
+          </div>
         ) : (
-        <table className='table table-bordered'>
-        <thead>
-          <tr>
-            <th scope='col'>S.No</th>
-            <th scope='col'>Name</th>
-            <th scope='col'>Email</th>
-            <th scope='col'>Address</th>
-            <th scope='col'>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user, index) => (
-            <tr key={user._id}>
-              <td>{index + 1}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.address}</td>
-              <td className='actionButtons'>
-                <Link to={`/update/${user._id}`} type='button' className='btn btn-primary'>
-                  <FontAwesomeIcon icon={faPenToSquare} />
-                </Link>
-                <button onClick={() => deleteUser(user._id)} type='button' className='btn btn-danger'>
-                  <FontAwesomeIcon icon={faTrash} />
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+          <table className='table table-bordered'>
+            <thead>
+              <tr>
+                <th scope='col'>S.No</th>
+                <th scope='col'>Name</th>
+                <th scope='col'>Email</th>
+                <th scope='col'>Address</th>
+                <th scope='col'>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user, index) => (
+                <tr key={user._id}>
+                  <td>{index + 1}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.address}</td>
+                  <td className='actionButtons'>
+                    <Link to={`/update/${user._id}`} type='button' className='btn btn-primary'>
+                      <FontAwesomeIcon icon={faPenToSquare} />
+                    </Link>
+                    <button onClick={() => deleteUser(user._id)} type='button' className='btn btn-danger'>
+                      <FontAwesomeIcon icon={faTrash} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         )
       }
-      
     </div>
   );
 };
